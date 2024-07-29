@@ -56,8 +56,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'posts',
     'profiles',
+    'django_filters',
     'comments',
     'likes',
+    'followers',
 
 ]
 

@@ -12,8 +12,8 @@ CLOUDINARY_STORAGE = {
 
 MEDIA_URL = '/media/'
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+DEFAULT_FILE_STORAGE = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
+'fifth-project-b52d7d161462.herokuapp.com']
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -96,8 +96,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'allauth.account.middleware.AccountMiddleware',  # Add this line
-
+    #'allauth.account.middleware.AccountMiddleware',  
 ]
 if 'CLIENT_ORIGIN' in os.environ:
      CORS_ALLOWED_ORIGINS = [

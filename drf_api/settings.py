@@ -1,5 +1,7 @@
+import re
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from pathlib import Path
+
 import os
 import dj_database_url
 
@@ -39,6 +41,7 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
@@ -56,7 +59,8 @@ SECRET_KEY = 'django-insecure-rc=r4^4*-sarenuj1=pq=4mfo4wmx$j&_(72r0um%61uxdsz)t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net','fifth-project-b52d7d161462.herokuapp.com']
+ALLOWED_HOSTS = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
+os.environ.get('ALLOWED_HOST'),]
 
 
 # Application definition
@@ -98,10 +102,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'allauth.account.middleware.AccountMiddleware',  
 ]
-if 'CLIENT_ORIGIN' in os.environ:
-     CORS_ALLOWED_ORIGINS = [
-         os.environ.get('CLIENT_ORIGIN')
-     ]
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
+    ]
 else:
      CORS_ALLOWED_ORIGIN_REGEXES = [
         r"^https://.*\.gitpod\.io$",
@@ -156,7 +161,7 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-    print('connected')
+    #print('connected')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -200,3 +205,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

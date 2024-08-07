@@ -114,7 +114,7 @@ else:
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
+    'https://3000-fh255-moments-2zn16j8gi9p.ws.codeinstitute-ide.net',
     'https://fifth-project-b52d7d161462.herokuapp.com'
 ]
 

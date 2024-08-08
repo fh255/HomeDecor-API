@@ -13,9 +13,10 @@ CLOUDINARY_STORAGE = {
 }
 
 MEDIA_URL = '/media/'
-
-DEFAULT_FILE_STORAGE = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
-'fifth-project-b52d7d161462.herokuapp.com']
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#DEFAULT_FILE_STORAGE = ['cloudinary_storage.storage.MediaCloudinaryStorage']
+#DEFAULT_FILE_STORAGE = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
+#'fifth-project-b52d7d161462.herokuapp.com']
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -57,7 +58,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = 'django-insecure-rc=r4^4*-sarenuj1=pq=4mfo4wmx$j&_(72r0um%61uxdsz)t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
 'fifth-project-b52d7d161462.herokuapp.com']

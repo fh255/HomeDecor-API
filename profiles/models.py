@@ -10,19 +10,21 @@ class Profile(models.Model):
     content = models.TextField(blank=True)
     image = models.ImageField(
         upload_to='images/', 
-        default='https://res.cloudinary.com/dwrqfvy4k/image/upload/v1720621467/default_profile_fu1vcu.png'
+        # default='https://res.cloudinary.com/dwrqfvy4k/image/upload/v1720621467/default_profile_fu1vcu.png',
+        default='default_profile_fu1vcu.png'
     )
 
     class Meta: 
         ordering = ['-created_at']
 
     def __str__(self):
-        return f"{self.owner}'s profile"
+        return f"{self.owner}'s profile, image is {self.image}"
 
 
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(owner=instance)
+        
 
 post_save.connect(create_profile, sender = User)
 

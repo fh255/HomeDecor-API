@@ -14,7 +14,6 @@ CLOUDINARY_STORAGE = {
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-#DEFAULT_FILE_STORAGE = ['cloudinary_storage.storage.MediaCloudinaryStorage']
 #DEFAULT_FILE_STORAGE = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
 #'fifth-project-b52d7d161462.herokuapp.com']
 

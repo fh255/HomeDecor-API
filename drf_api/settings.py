@@ -57,7 +57,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = 'django-insecure-rc=r4^4*-sarenuj1=pq=4mfo4wmx$j&_(72r0um%61uxdsz)t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
 'fifth-project-b52d7d161462.herokuapp.com']

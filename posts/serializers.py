@@ -2,7 +2,6 @@ from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
 
-
 class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -37,6 +36,10 @@ class PostSerializer(serializers.ModelSerializer):
             ).first()
             return like.id if like else None
         return None
+
+    def create(self, validated_data):
+        # Ensure that only model fields are passed to Post.objects.create
+        return Post.objects.create(**validated_data)
 
     class Meta:
         model = Post

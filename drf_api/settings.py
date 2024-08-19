@@ -104,7 +104,10 @@ MIDDLEWARE = [
     #'allauth.account.middleware.AccountMiddleware',  
 ]
 
-CORS_ALLOWED_ORIGINS = [os.environ.get("CLIENT_ORIGIN")]
+CORS_ALLOWED_ORIGINS = [
+    os.environ.get("CLIENT_ORIGIN", "https://3000-fh255-moments-2zn16j8gi9p.ws.codeinstitute-ide.net")
+]
+
 
 # CORS_ALLOWED_ORIGINS = [
 #     "https://3000-fh255-moments-2zn16j8gi9p.ws.codeinstitute-ide.net",

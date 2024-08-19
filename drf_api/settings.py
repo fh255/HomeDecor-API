@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'comments',
     'likes',
     'followers',
+    'tags',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
@@ -104,6 +105,11 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [os.environ.get("CLIENT_ORIGIN")]
+
+# CORS_ALLOWED_ORIGINS = [
+#     "https://3000-fh255-moments-2zn16j8gi9p.ws.codeinstitute-ide.net",
+# ]
+
 
 # if 'CLIENT_ORIGIN_DEV' in os.environ:
 #     CORS_ALLOWED_ORIGINS = [

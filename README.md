@@ -40,6 +40,10 @@ Most of the models are similar except for the Saved model, which has been custom
 
 ## User Story
 
+This project was developed using agile methodologies, with user stories, upcoming features, and unresolved bugs tracked on the GitHub Project Board. The board organizes user stories for  the back-end components, categorized with distinct labels for better visibility and management.
+
+ * [Backend User Story](https://github.com/users/fh255/projects/8/views/1)
+ * [Frontend User Story](https://github.com/users/fh255/projects/10/views/1?layout=board)
   
 ## API Routes
 

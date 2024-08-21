@@ -14,20 +14,22 @@ HomeDecor is a content-sharing platform focused on home decor ideas. Users can s
 * [API Routes](#api-routes)
 
 * [Technologies Used](#technologies-used)
-  * [Languages Used:](#languages-used)
-  * [Frameworks and Libraries Used:](#frameworks-and-libraries-used)
-  * [Software and Web Applications Used:](#software-and-web-applications-used)
+  * [Languages ](#languages-used)
+  * [Frameworks and Libraries ](#frameworks-and-libraries-used)
+  * [Database](#database)
+  * [Cloud Storage and Deployment Services](cloud-storage-and-deployment-services)
 * [Testing](#testing)
   * [Unit Testing](#unit-testing)
   * [Manual Testing](#manual-testing)
   * [Test Cases](#test-cases)
   * [Testing CRUD functionality](#testing-crdu-functionality)
   * [Validator Testing](#validator-testing)
-    * [PEP8 Online:](#pep8-online)
-    * [Lighthouse:](#lighthouse)
+    * [PEP8 Online](#pep8-online)
+    * [Lighthouse](#lighthouse)
   * [Solved bugs](#solved-bugs)
   * [Known bugs](#known-bugs)
 * [Deployment](#deployment)
+* [Fork the Repository](fork-the-repository)
 * [Credits](#credits)
   * [Acknowledgements](#acknowledgements)
 
@@ -68,11 +70,32 @@ This project was developed using agile methodologies, with user stories, upcomin
    ```
 
 ## Technologies Used
-### Languages Used:
+### Languages :
+ * [Python](https://www.python.org/)
+ * [HTML](https://www.w3schools.com/html/default.asp)
+ * [CSS](https://www.w3schools.com/css/default.asp)
+ * [JS](https://react.dev/)
 
-### Frameworks and Libraries Used:
+### Frameworks and Libraries :
+#### API Backend
+ * [Django Rest Framework](https://www.django-rest-framework.org/)
+ * [Psycopg2](https://pypi.org/project/psycopg2/)
+ * [django_filters](https://django-filter.readthedocs.io/en/stable/guide/install.html)
+ * [rest_framework.authtoken](https://pypi.org/project/django-rest-authtoken/)
+ * [dj_rest_auth](https://pypi.org/project/django-rest-authtoken/)
+ * [JSON WEB tokens](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html)
+ * [corsheaders](https://pypi.org/project/django-cors-headers/)
+ * [dj_rest_auth.registration](https://dj-rest-auth.readthedocs.io/en/latest/api_endpoints.html)
+ * [dbdiagram.io](https://dbdiagram.io/home)
+ * [Google Sheets](https://docs.google.com/spreadsheets/)
 
-### Software and Web Applications Used:
+### Database
+ * [PostgreSQL](https://www.postgresql.org/)
+ * [ElephantSQL](https://customer.elephantsql.com/login)
+
+### Cloud Storage and Deployment Services
+ * [Cloudinary](https://cloudinary.com/)
+ * [Heroku](https://id.heroku.com/login)
 
 
 ## Testing
@@ -120,12 +143,73 @@ I have verified that the page is easy to read and accessible by running them thr
 <img width="673" alt="Light House" src="https://github.com/user-attachments/assets/2eb54945-db60-4acb-bb9d-93835475421c">
 
 ### Solved bugs:
+ * The deployment failed multiple times due to a CORS (Cross-Origin Resource Sharing) error. After revisiting the Code Institute walkthrough and with help from tutor support, I successfully configured the CORS settings in the backend settings.py file.
+ * Another issue occurred with loading the default profile image, caused by an outdated version of Cloudinary. I resolved this with guidance from tutor support.
 
+### Known bugs:
+As of now, there are no known bugs in the back-end based on my testing and knowledge.
 
-### Validator Testing
-#### Lighthouse
-#### PEP8 Online
+## Deployment
+The application was successfully deployed to Heroku with the following steps:
+ - Login to Heroku dashboard to view installed apps.
+ - Click on **New** => **Create new app**.
+ - Choose a unique name for your application and select your region.
+ - Click on Create app.
+ - Once your application is created, navigate to the Settings tab => click on Reveal Config Vars.
+    - Copy the DATABASE_URL value to the clipboard.
+    - Copy the url for client origin and client origin dev to the clipboard.
+ - In GitPod, create a new env.py file at the top level directory.
+ - In the env.py file
+    - Set environment variables: **os.environ["DATABASE_URL"]** = **"Paste in Heroku DATABASE_URL Link"**
+    - Add in secret key: **os.environ[”SECRET_KEY"]** = **"Generate your own randomSecretKey”**
+ - In Heroku, navigate to the Settings tab => click on Reveal Config Vars.
+ - Add SECRET_KEY to Config Vars using the randomSecretKey you generated.
+ - In the settings.py file:
+    - Replace the insecure secret key with: **SECRET_KEY = os.environ.get("SECRET_KEY")**
+    - Update to use the DATABASE_URL: import dj_database_url and DATABASES['default'] = dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    - set the CSRF_TRUSTED_ORIGINS values , CORS_ALLOW_CREDENTIALS to True and JWT_AUTH_SAMESITE to None.
+    - Replace the DEBUG Setting to be only true in Dev and False in Prod Mode
+- Save all files and run migrations: python3 manage.py migrate
+- Log in to Cloudinary and navigate to the Cloudinary Dashboard.
+- Copy your CLOUDINARY_URL API Environment Variable to the clipboard.
+- In the env.py file
+    - Add Cloudinary **URL: os.environ["CLOUDINARY_URL"] = "cloudinary://paste in your API Environment Variable"**
+  - In Heroku, go to the Settings tab => click on Reveal Config Vars.
+  - Add 'CLOUDINARY_URL' to Config Vars with the API Environment Variable value.
+  - Add 'DISABLE_COLLECTSTATIC' = 1 to Heroku Config Vars (temporary, remove before final deployment).
+  - In the settings.py file:
+    - Add Cloudinary Libraries to installed apps (order matters): **'cloudinary_storage', 'django.contrib.staticfiles', 'cloudinary'**
+    - Add the following code below STATIC_URL = ’/static/' to use Cloudinary to store media and static files:
+      - STATICFILES_STORAGE = ’cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+      - STATICFILES_DIRS = [os.path.join(BASE_DIR, ’static')]
+      - STATIC_ROOT = os.path.join(BASE_DIR, ’staticfiles')
+      - MEDIA_URL = '/media/'
+      - DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    - Link file to the templates directory in Heroku: **TEMPLATES_DIR = os.path.join(BASE_DIR, ’templates')**
+    - Change the templates directory to: TEMPLATES_DIR: 'DIRS': [TEMPLATES_DIR],
+    - Add Heroku Hostname to ALLOWED_HOSTS: ALLOWED_HOSTS = [”Your_Project_name.herokuapp.com”, ”localhost”]
+  - Create a Procfile on the top level directory
+  - In the Procfile file:
+    - Add the following code: release: python manage.py makemigrations && python manage.py migrate
+                              web: gunicorn drf_api.wsgi
+  - In the terminal: Add, Commit and Push.
+  - In Heroku navigate to the Deploy tab => click on Deploy Branch.
+  - When build process is finished click on Open App to visit the live site.
 
+## Fork the Repository
+Log in to GitHub, go to the repository "[HomeDecor-API](https://github.com/fh255/HomeDecor-API)" click the Fork button in the top right-hand corner, and a copy of the repo will be available in your GitHub repositories list.
+
+## Credits
+  - [Code Institute:](https://codeinstitute.net/) Walkthrough modules in Full Stack Frameworks.
+  - [Code Institute Slack Community:](https://app.slack.com/) Slack community for troubleshooting and FAQ.
+  - [Code Institute Tutor Support:](https://app.slack.com/) For help and support.
+  - [Django documentation:](https://docs.djangoproject.com/en/4.1/) Everything you need to know about Django.
+  - [Stack Overflow:](https://stackoverflow.com) For troubleshooting and FAQ.
+  - [W3Schools:](https://www.w3schools.com) Online Web Tutorials.
+
+### Acknowledgements
+
+  - Special thanks to the tutor assistance and my mentor at Code Institute, Martina Terlevic, for their invaluable support with code reviews, assistance, and feedback. It has been immensely appreciated!
 
 
 

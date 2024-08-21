@@ -20,10 +20,11 @@ HomeDecor is a content-sharing platform focused on home decor ideas. Users can s
 * [Testing](#testing)
   * [Unit Testing](#unit-testing)
   * [Manual Testing](#manual-testing)
+  * [Test Cases](#test-cases)
+  * [Testing CRUD functionality](#testing-crdu-functionality)
   * [Validator Testing](#validator-testing)
     * [PEP8 Online:](#pep8-online)
     * [Lighthouse:](#lighthouse)
-  * [Test Cases for Models](#test-cases-for-models)
   * [Solved bugs](#solved-bugs)
   * [Known bugs](#known-bugs)
 * [Deployment](#deployment)
@@ -90,6 +91,36 @@ The following tests were created following the CI walkthrough.
 
 ### Manual Testing
 The HomeDecor API was manually tested throughout development using the Django REST framework. Each feature’s API endpoints and CRUD functionality were thoroughly tested to ensure proper operation. Additionally, the endpoints were verified on the deployed site and continuously checked during front-end development to confirm seamless integration between the front and back ends as new features were implemented in the React app.
+
+### Test Cases
+Test Cases Implemented for Functionality Checks:
+ * Tested login, logout, and registration functionality.
+ * Verified that POST, PUT, and DELETE methods for posts, profiles, followers, tags, comments, and likes are restricted to authorized users.
+ * Confirmed GET methods work correctly via API endpoints.
+ * Checked the filter functionality using keywords.
+ * Tested POST requests for creating posts, comments, likes, tags, and followers.
+ * Tested PUT requests for updating profiles, posts, and comments by ID.
+ * Tested DELETE requests for deleting posts, comments, likes, and followers by ID.
+
+### Testing CRUD functionality
+<img width="525" alt="CRDU" src="https://github.com/user-attachments/assets/43527766-c63d-475a-9274-3b4dc4160be0">
+
+### Validator Testing
+
+#### PEP8 Online:
+The Python code was checked for errors using the Problems tab in Gitpod. Each file was reviewed and fixed for PEP8 compliance, mainly minor issues like missing blank lines.
+The only remaining warnings are for long lines in settings.py under AUTH_PASSWORD_VALIDATORS. These were left unchanged to avoid potential issues, following advice from the Code Institute Slack channels.
+<details>
+<summary>The issues</summary>
+<img width="1141" alt="Long string" src="https://github.com/user-attachments/assets/be27f5ef-82b3-4084-bfc6-939bad7f7efc">
+</details>
+
+#### Lighthouse:
+I have verified that the page is easy to read and accessible by running them through Lighthouse in Chrome Developer Tools on the following pages:
+<img width="673" alt="Light House" src="https://github.com/user-attachments/assets/2eb54945-db60-4acb-bb9d-93835475421c">
+
+### Solved bugs:
+
 
 ### Validator Testing
 #### Lighthouse

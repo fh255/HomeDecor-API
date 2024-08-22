@@ -14,8 +14,9 @@ CLOUDINARY_STORAGE = {
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-#DEFAULT_FILE_STORAGE = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
-#'fifth-project-b52d7d161462.herokuapp.com']
+# DEFAULT_FILE_STORAGE = [
+# '8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
+# 'fifth-project-b52d7d161462.herokuapp.com']
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,20 +48,21 @@ REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
 }
 
-
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-rc=r4^4*-sarenuj1=pq=4mfo4wmx$j&_(72r0um%61uxdsz)t'
+SECRET_KEY = (
+    "django-insecure-rc=r4^4*-sarenuj1=pq=4mfo4wmx$j&_(72r0um%61uxdsz)t"
+)
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
-'fifth-project-b52d7d161462.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-fh255-5tproject-bux5s1gvuzb.ws.codeinstitute-ide.net',
+    'fifth-project-b52d7d161462.herokuapp.com']
 
 
 # Application definition
@@ -101,23 +103,23 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'allauth.account.middleware.AccountMiddleware',  
+    # 'allauth.account.middleware.AccountMiddleware',
 ]
+
+# CORS_ALLOWED_ORIGINS = [
+#     os.environ.get("CLIENT_ORIGIN"),
+#     os.environ.get("CLIENT_ORIGIN_DEV")
+# ]
+
+# CORS_ALLOWED_ORIGINS = [
+# 'os.environ.get("CLIENT_ORIGIN"',
+# "https://3000-fh255-moments-2zn16j8gi9p.ws.codeinstitute-ide.net")]
+
 
 CORS_ALLOWED_ORIGINS = [
-    os.environ.get("CLIENT_ORIGIN"),
-    os.environ.get("CLIENT_ORIGIN_DEV")
+    "https://3000-fh255-moments-2zn16j8gi9p.ws.codeinstitute-ide.net",
+    "https://home-fat-116ff084a3b1.herokuapp.com"
 ]
-
-# CORS_ALLOWED_ORIGINS = [
-#     os.environ.get("CLIENT_ORIGIN", "https://3000-fh255-moments-2zn16j8gi9p.ws.codeinstitute-ide.net")
-   
-# ]
-
-
-# CORS_ALLOWED_ORIGINS = [
-#     "https://3000-fh255-moments-2zn16j8gi9p.ws.codeinstitute-ide.net",
-# ]
 
 
 # if 'CLIENT_ORIGIN_DEV' in os.environ:
@@ -181,7 +183,7 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-    #print('connected')
+    # print('connected')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -225,5 +227,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-

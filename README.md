@@ -1,131 +1,218 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# HomeDecor/API
 
-Welcome Fatema Mahabub,
+This is my fifth milestone project with Code Institute. It involves building the backend API for the HomeDecor frontend React app. The API provides the models and logic that enable the frontend to perform CRUD operations.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+HomeDecor is a content-sharing platform focused on home decor ideas. Users can sign up, share their decor inspirations, like or unlike posts, and follow or unfollow other users.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+[View the Deployed Backend here.](https://fifth-project-b52d7d161462.herokuapp.com/)
 
-## Gitpod Reminders
+[View the Deployed Fontend here.](https://moments-fat-771e386813d1.herokuapp.com/)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Index – Table of Contents
+* [Data Structure](#data-structure)
+* [User Story](#user-story)
+* [API Routes](#api-routes)
 
-`python3 -m http.server`
+* [Technologies Used](#technologies-used)
+  * [Languages ](#languages-used)
+  * [Frameworks and Libraries ](#frameworks-and-libraries-used)
+  * [Database](#database)
+  * [Cloud Storage and Deployment Services](cloud-storage-and-deployment-services)
+* [Testing](#testing)
+  * [Unit Testing](#unit-testing)
+  * [Manual Testing](#manual-testing)
+  * [Test Cases](#test-cases)
+  * [Testing CRUD functionality](#testing-crdu-functionality)
+  * [Validator Testing](#validator-testing)
+    * [PEP8 Online](#pep8-online)
+    * [Lighthouse](#lighthouse)
+  * [Solved bugs](#solved-bugs)
+  * [Known bugs](#known-bugs)
+* [Deployment](#deployment)
+* [Fork the Repository](fork-the-repository)
+* [Credits](#credits)
+  * [Acknowledgements](#acknowledgements)
 
-A blue button should appear to click: _Make Public_,
+## Data Structure
+The plan for this project was loosely based on the Code Institute Moments walkthrough project.
+Most of the models are similar except for the Saved model, which has been customised to better suit the needs of MewMes app users.
+<img width="824" alt="Data structure" src="https://github.com/user-attachments/assets/f80b4b04-67df-4849-9868-cfc11eb556ae">
 
-Another blue button should appear to click: _Open Browser_.
+## User Story
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+This project was developed using agile methodologies, with user stories, upcoming features, and unresolved bugs tracked on the GitHub Project Board. The board organizes user stories for  the back-end components, categorized with distinct labels for better visibility and management.
 
-A blue button should appear to click: _Make Public_,
+ * [Backend User Story](https://github.com/users/fh255/projects/8/views/1)
+ * [Frontend User Story](https://github.com/users/fh255/projects/10/views/1?layout=board)
+  
+## API Routes
 
-Another blue button should appear to click: _Open Browser_.
+ ```bash
+  dj-rest-auth/login/
+  dj-rest-auth/logout/
+  dj-rest-auth/registration/
+  dj-rest-auth/password/change/
+  dj-rest-auth/token/refresh/
+  profiles/
+  profiles/<int:pk>/
+  posts/
+  posts/<int:pk>/
+  comments/
+  comments/<int:pk>/
+  likes/
+  likes/<int:pk>/
+  tags/
+  tags/<int:pk>/
+  followers/
+  followers/<int:pk>/
+  following/
+  following/<int:pk>/
+   ```
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Technologies Used
+### Languages :
+ * [Python](https://www.python.org/)
+ * [HTML](https://www.w3schools.com/html/default.asp)
+ * [CSS](https://www.w3schools.com/css/default.asp)
+ * [JS](https://react.dev/)
 
-To log into the Heroku toolbelt CLI:
+### Frameworks and Libraries :
+#### API Backend
+ * [Django Rest Framework](https://www.django-rest-framework.org/)
+ * [Psycopg2](https://pypi.org/project/psycopg2/)
+ * [django_filters](https://django-filter.readthedocs.io/en/stable/guide/install.html)
+ * [rest_framework.authtoken](https://pypi.org/project/django-rest-authtoken/)
+ * [dj_rest_auth](https://pypi.org/project/django-rest-authtoken/)
+ * [JSON WEB tokens](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html)
+ * [corsheaders](https://pypi.org/project/django-cors-headers/)
+ * [dj_rest_auth.registration](https://dj-rest-auth.readthedocs.io/en/latest/api_endpoints.html)
+ * [dbdiagram.io](https://dbdiagram.io/home)
+ * [Google Sheets](https://docs.google.com/spreadsheets/)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Database
+ * [PostgreSQL](https://www.postgresql.org/)
+ * [ElephantSQL](https://customer.elephantsql.com/login)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+### Cloud Storage and Deployment Services
+ * [Cloudinary](https://cloudinary.com/)
+ * [Heroku](https://id.heroku.com/login)
 
-### Connecting your Mongo database
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+## Testing
 
-------
+### Unit Testing
+The following tests were created following the CI walkthrough.
 
-## Release History
+#### Posts Detail View testing:
+<img width="606" alt="Post detaiView1" src="https://github.com/user-attachments/assets/3170c428-4ee2-42f6-ad55-d198cf1e1780">
+<img width="694" alt="PostDetailView2" src="https://github.com/user-attachments/assets/070679f3-da18-4b77-98fd-485fe5b7e532">
+<img width="778" alt="PostDetailView3" src="https://github.com/user-attachments/assets/fe254341-8a20-4491-a7d5-5cdc1b304be3">
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### Posts List View testing:
+<img width="820" alt="PostListView 1" src="https://github.com/user-attachments/assets/01f9297f-af5e-4b10-b14a-8729bb8e1fe2">
+<img width="749" alt="PostListView 2" src="https://github.com/user-attachments/assets/7318f041-c3f0-4276-b8d5-f55b99a0a242">
 
-**June 18, 2024,** Add Mongo back into template
+### Manual Testing
+The HomeDecor API was manually tested throughout development using the Django REST framework. Each feature’s API endpoints and CRUD functionality were thoroughly tested to ensure proper operation. Additionally, the endpoints were verified on the deployed site and continuously checked during front-end development to confirm seamless integration between the front and back ends as new features were implemented in the React app.
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+### Test Cases
+Test Cases Implemented for Functionality Checks:
+ * Tested login, logout, and registration functionality.
+ * Verified that POST, PUT, and DELETE methods for posts, profiles, followers, tags, comments, and likes are restricted to authorized users.
+ * Confirmed GET methods work correctly via API endpoints.
+ * Checked the filter functionality using keywords.
+ * Tested POST requests for creating posts, comments, likes, tags, and followers.
+ * Tested PUT requests for updating profiles, posts, and comments by ID.
+ * Tested DELETE requests for deleting posts, comments, likes, and followers by ID.
 
-**May 28 2024:** Fix Mongo and Links installs
+### Testing CRUD functionality
+<img width="525" alt="CRDU" src="https://github.com/user-attachments/assets/43527766-c63d-475a-9274-3b4dc4160be0">
 
-**April 26 2024:** Update node version to 16
+### Validator Testing
 
-**September 20 2023:** Update Python version to 3.9.17.
+#### PEP8 Online:
+The Python code was checked for errors using the Problems tab in Gitpod. Each file was reviewed and fixed for PEP8 compliance, mainly minor issues like missing blank lines.
+The only remaining warnings are for long lines in settings.py under AUTH_PASSWORD_VALIDATORS. These were left unchanged to avoid potential issues, following advice from the Code Institute Slack channels.
+<details>
+<summary>The issues</summary>
+<img width="1141" alt="Long string" src="https://github.com/user-attachments/assets/be27f5ef-82b3-4084-bfc6-939bad7f7efc">
+</details>
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+#### Lighthouse:
+I have verified that the page is easy to read and accessible by running them through Lighthouse in Chrome Developer Tools on the following pages:
+<img width="673" alt="Light House" src="https://github.com/user-attachments/assets/2eb54945-db60-4acb-bb9d-93835475421c">
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Solved bugs:
+ * The deployment failed multiple times due to a CORS (Cross-Origin Resource Sharing) error. After revisiting the Code Institute walkthrough and with help from tutor support, I successfully configured the CORS settings in the backend settings.py file.
+ * Another issue occurred with loading the default profile image, caused by an outdated version of Cloudinary. I resolved this with guidance from tutor support.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Known bugs:
+As of now, there are no known bugs in the back-end based on my testing and knowledge.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Deployment
+The application was successfully deployed to Heroku with the following steps:
+ - Login to Heroku dashboard to view installed apps.
+ - Click on **New** => **Create new app**.
+ - Choose a unique name for your application and select your region.
+ - Click on Create app.
+ - Once your application is created, navigate to the Settings tab => click on Reveal Config Vars.
+    - Copy the DATABASE_URL value to the clipboard.
+    - Copy the url for client origin and client origin dev to the clipboard.
+ - In GitPod, create a new env.py file at the top level directory.
+ - In the env.py file
+    - Set environment variables: **os.environ["DATABASE_URL"]** = **"Paste in Heroku DATABASE_URL Link"**
+    - Add in secret key: **os.environ[”SECRET_KEY"]** = **"Generate your own randomSecretKey”**
+ - In Heroku, navigate to the Settings tab => click on Reveal Config Vars.
+ - Add SECRET_KEY to Config Vars using the randomSecretKey you generated.
+ - In the settings.py file:
+    - Replace the insecure secret key with: **SECRET_KEY = os.environ.get("SECRET_KEY")**
+    - Update to use the DATABASE_URL: import dj_database_url and DATABASES['default'] = dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    - set the CSRF_TRUSTED_ORIGINS values , CORS_ALLOW_CREDENTIALS to True and JWT_AUTH_SAMESITE to None.
+    - Replace the DEBUG Setting to be only true in Dev and False in Prod Mode
+- Save all files and run migrations: python3 manage.py migrate
+- Log in to Cloudinary and navigate to the Cloudinary Dashboard.
+- Copy your CLOUDINARY_URL API Environment Variable to the clipboard.
+- In the env.py file
+    - Add Cloudinary **URL: os.environ["CLOUDINARY_URL"] = "cloudinary://paste in your API Environment Variable"**
+  - In Heroku, go to the Settings tab => click on Reveal Config Vars.
+  - Add 'CLOUDINARY_URL' to Config Vars with the API Environment Variable value.
+  - Add 'DISABLE_COLLECTSTATIC' = 1 to Heroku Config Vars (temporary, remove before final deployment).
+  - In the settings.py file:
+    - Add Cloudinary Libraries to installed apps (order matters): **'cloudinary_storage', 'django.contrib.staticfiles', 'cloudinary'**
+    - Add the following code below STATIC_URL = ’/static/' to use Cloudinary to store media and static files:
+      - STATICFILES_STORAGE = ’cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+      - STATICFILES_DIRS = [os.path.join(BASE_DIR, ’static')]
+      - STATIC_ROOT = os.path.join(BASE_DIR, ’staticfiles')
+      - MEDIA_URL = '/media/'
+      - DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    - Link file to the templates directory in Heroku: **TEMPLATES_DIR = os.path.join(BASE_DIR, ’templates')**
+    - Change the templates directory to: TEMPLATES_DIR: 'DIRS': [TEMPLATES_DIR],
+    - Add Heroku Hostname to ALLOWED_HOSTS: ALLOWED_HOSTS = [”Your_Project_name.herokuapp.com”, ”localhost”]
+  - Create a Procfile on the top level directory
+  - In the Procfile file:
+    - Add the following code: release: python manage.py makemigrations && python manage.py migrate
+                              web: gunicorn drf_api.wsgi
+  - In the terminal: Add, Commit and Push.
+  - In Heroku navigate to the Deploy tab => click on Deploy Branch.
+  - When build process is finished click on Open App to visit the live site.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Fork the Repository
+Log in to GitHub, go to the repository "[HomeDecor-API](https://github.com/fh255/HomeDecor-API)" click the Fork button in the top right-hand corner, and a copy of the repo will be available in your GitHub repositories list.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Credits
+  - [Code Institute:](https://codeinstitute.net/) Walkthrough modules in Full Stack Frameworks.
+  - [Code Institute Slack Community:](https://app.slack.com/) Slack community for troubleshooting and FAQ.
+  - [Code Institute Tutor Support:](https://app.slack.com/) For help and support.
+  - [Django documentation:](https://docs.djangoproject.com/en/4.1/) Everything you need to know about Django.
+  - [Stack Overflow:](https://stackoverflow.com) For troubleshooting and FAQ.
+  - [W3Schools:](https://www.w3schools.com) Online Web Tutorials.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Acknowledgements
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+  - Special thanks to the tutor assistance and my mentor at Code Institute, Martina Terlevic, for their invaluable support with code reviews, assistance, and feedback. It has been immensely appreciated!
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!

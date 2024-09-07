@@ -62,7 +62,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-fh255-homedecorapi-6sjuhw0ps1n.ws.codeinstitute-ide.net',
-    'https://fifth-project-b52d7d161462.herokuapp.com']
+    'fifth-project-b52d7d161462.herokuapp.com']
 
 
 # Application definition

@@ -4,9 +4,9 @@ This is my fifth milestone project with Code Institute. It involves building the
 
 HomeDecor is a content-sharing platform focused on home decor ideas. Users can sign up, share their decor inspirations, like or unlike posts, and follow or unfollow other users.
 
-[Front-End Repository](https://github.com/fh255/HomeDecor)
-[View the Deployed Back-End here.](https://fifth-project-b52d7d161462.herokuapp.com/)
-[View the Deployed Front-End here.](https://home-fat-116ff084a3b1.herokuapp.com/)
+ - [Front-End Repository](https://github.com/fh255/HomeDecor)
+ - [View the Deployed Back-End here.](https://fifth-project-b52d7d161462.herokuapp.com/)
+ - [View the Deployed Front-End here.](https://home-fat-116ff084a3b1.herokuapp.com/)
 
 ## Index – Table of Contents
 * [Data Structure](#data-structure)
@@ -14,15 +14,15 @@ HomeDecor is a content-sharing platform focused on home decor ideas. Users can s
 * [API Routes](#api-routes)
 
 * [Technologies Used](#technologies-used)
-  * [Languages ](#languages-used)
-  * [Frameworks and Libraries ](#frameworks-and-libraries-used)
+  * [Languages](#languages)
+  * [Frameworks and Libraries](#frameworks-and-libraries)
   * [Database](#database)
   * [Cloud Storage and Deployment Services](cloud-storage-and-deployment-services)
 * [Testing](#testing)
   * [Unit Testing](#unit-testing)
   * [Manual Testing](#manual-testing)
   * [Test Cases](#test-cases)
-  * [Testing CRUD functionality](#testing-crdu-functionality)
+  * [Testing CRUD functionality](#testing-crud-functionality)
   * [Validator Testing](#validator-testing)
     * [PEP8 Online](#pep8-online)
     * [Lighthouse](#lighthouse)
@@ -70,13 +70,13 @@ This project was developed using agile methodologies, with user stories, upcomin
    ```
 
 ## Technologies Used
-### Languages :
+### Languages:
  * [Python](https://www.python.org/)
  * [HTML](https://www.w3schools.com/html/default.asp)
  * [CSS](https://www.w3schools.com/css/default.asp)
  * [JS](https://react.dev/)
 
-### Frameworks and Libraries :
+### Frameworks and Libraries:
 #### API Backend
  * [Django Rest Framework](https://www.django-rest-framework.org/)
  * [Psycopg2](https://pypi.org/project/psycopg2/)

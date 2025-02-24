@@ -35,7 +35,7 @@ HomeDecor is a content-sharing platform focused on home decor ideas. Users can s
 
 ## Data Structure
 The plan for this project was loosely based on the Code Institute Moments walkthrough project.
-Most of the models are similar except for the Saved model, which has been customised to better suit the needs of MewMes app users.
+Most of the models are similar except for the Saved model, which has been customised to better suit the needs of Home Decorapp users.
 <img width="824" alt="Data structure" src="https://github.com/user-attachments/assets/f80b4b04-67df-4849-9868-cfc11eb556ae">
 
 ## User Story
